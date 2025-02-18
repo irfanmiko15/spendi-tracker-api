@@ -10,3 +10,8 @@ db.sqlite
 .env.*
 ! .env.example
 .vscode
+*.pem
+*.key
+*.crt
+*.cert
+*.jwks
