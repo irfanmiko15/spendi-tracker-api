@@ -12,8 +12,8 @@ struct SpendingMethodController: RouteCollection{
         routes.group("spending-method") { income in
             // Authentication required
             income.group(UserAuthenticator()) { authenticated in
-                authenticated.get("all", use: getAll)
-                authenticated.post("create", use: createSpendingMethod)
+                authenticated.get(use: getAll)
+                authenticated.post(use: createSpendingMethod)
                 authenticated.put(":id", use: updateSpendingMethod)
                 authenticated.delete(":id", use: deleteSpendingMethod)
             }

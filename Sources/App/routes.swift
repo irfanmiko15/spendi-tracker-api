@@ -7,5 +7,6 @@ func routes(_ app: Application) throws {
         try! api.register(collection: AuthenticationController())
         try! api.register(collection: IncomeController())
         try! api.register(collection: SpendingMethodController())
+        try! api.register(collection: ExpenseTypeController())
     }
 }

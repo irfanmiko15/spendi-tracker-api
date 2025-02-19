@@ -13,7 +13,7 @@ struct IncomeController: RouteCollection{
             // Authentication required
             income.group(UserAuthenticator()) { authenticated in
                 authenticated.get("all", use: getAllIncome)
-                authenticated.post("create", use: createIncome)
+                authenticated.post(use: createIncome)
                 authenticated.put(":id", use: updateIncome)
                 authenticated.delete(":id", use: deleteIncome)
             }
@@ -35,7 +35,7 @@ struct IncomeController: RouteCollection{
 
             let income = Income(
                 user: payload.userID,  // Ensure this matches your `Income` model
-                spendingMethod: incomeRequest.spendingMethod,
+                spendingMethod: incomeRequest.spendingMethodId,
                 month: incomeRequest.month,
                 year: incomeRequest.year,
                 amount: incomeRequest.amount
@@ -56,12 +56,11 @@ struct IncomeController: RouteCollection{
         return incomeFuture
             .unwrap(or: Abort(.notFound, reason: "Income not found"))
             .flatMap { income in
-                income.user
                 income.amount = updatedIncome.amount
                 income.month = updatedIncome.month
                 income.year = updatedIncome.year
                 income.updatedAt = Date()
-                income.$spendingMethod.id = updatedIncome.spendingMethod
+                income.$spendingMethod.id = updatedIncome.spendingMethodId
                 
                 return req.income.update(income).transform(to: .noContent)
             }

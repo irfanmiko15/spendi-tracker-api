@@ -8,5 +8,5 @@ extension Request {
     var passwordTokens: PasswordTokenRepository { application.repositories.passwordTokens.for(self) }
     var income: IncomeRepository { application.repositories.incomes.for(self) }
     var spendingMethod: SpendingMethodRepository { application.repositories.spendingMethods.for(self) }
-    
+    var expenseType: ExpenseTypeRepository { application.repositories.expenseTypes.for(self) }
 }

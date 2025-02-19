@@ -8,7 +8,7 @@
 import Vapor
 
 struct IncomeRequest: Content {
-    let spendingMethod: UUID
+    let spendingMethodId: UUID
     let month: Int
     let year: Int
     let amount: Double
