@@ -9,4 +9,5 @@ extension Request {
     var income: IncomeRepository { application.repositories.incomes.for(self) }
     var spendingMethod: SpendingMethodRepository { application.repositories.spendingMethods.for(self) }
     var expenseType: ExpenseTypeRepository { application.repositories.expenseTypes.for(self) }
+    var expense: ExpenseRepository { application.repositories.expenses.for(self) }
 }

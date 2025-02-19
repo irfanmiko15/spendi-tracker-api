@@ -12,7 +12,7 @@ struct IncomeController: RouteCollection{
         routes.group("income") { income in
             // Authentication required
             income.group(UserAuthenticator()) { authenticated in
-                authenticated.get("all", use: getAllIncome)
+                authenticated.get(use: getAllIncome)
                 authenticated.post(use: createIncome)
                 authenticated.put(":id", use: updateIncome)
                 authenticated.delete(":id", use: deleteIncome)

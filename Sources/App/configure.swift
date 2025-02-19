@@ -49,6 +49,6 @@ public func configure(_ app: Application) async throws {
         try app.autoMigrate().wait()
         try app.queues.startInProcessJobs()
     }
-//    
-//    try seed(app)
+    
+    try seed(app)
 }

@@ -12,9 +12,10 @@ struct CreatePasswordTokenMigration: Migration {
     func prepare(on database: Database) -> EventLoopFuture<Void> {
         database.schema("user_password_tokens")
             .id()
-            .field("user_id", .uuid, .required, .references("users", "id", onDelete: .cascade))
+            .field("user_id", .uuid, .required)
             .field("token", .string, .required)
             .field("expires_at", .datetime, .required)
+            .foreignKey("user_id", references: "users", "id",onDelete: .cascade)
             .create()
     }
     

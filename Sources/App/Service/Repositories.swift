@@ -33,6 +33,7 @@ extension Application {
                     $0.repositories.use { DatabaseIncomeRepository(database: $0.db ) }
                     $0.repositories.use { DatabaseSpendingMethodRepository(database: $0.db ) }
                     $0.repositories.use { DatabaseExpenseTypeRepository(database: $0.db ) }
+                    $0.repositories.use { DatabaseExpenseRepository(database: $0.db)}
                 }
             }
             
@@ -47,6 +48,7 @@ extension Application {
             var makeIncomeRepository: ((Application) -> IncomeRepository)?
             var makeSpendingMethodRepository: ((Application) -> SpendingMethodRepository)?
             var makeExpenseTypeRepository: ((Application) -> ExpenseTypeRepository)?
+            var makeExpenseRepository:((Application)-> ExpenseRepository)?
             init() { }
         }
         
