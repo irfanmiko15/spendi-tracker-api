@@ -35,7 +35,7 @@ struct DatabaseExpenseRepository: ExpenseRepository, DatabaseRepository {
     
     func all(incomeId: UUID) -> EventLoopFuture<[Expense]> {
         return Expense.query(on: database)
-            .with(\.$income).with(\.$expenseType).filter(\.$income.$id == incomeId ).sort(\.$transactionDate, .descending).all()
+            .with(\.$income, { $0.with(\.$spendingMethod) }).with(\.$expenseType).filter(\.$income.$id == incomeId ).sort(\.$transactionDate, .descending).all()
     }
     
     func find(id: UUID?) -> EventLoopFuture<Expense?> {
