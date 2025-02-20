@@ -19,6 +19,9 @@ struct CreateExpenseTypeMigration: Migration {
             .field("updated_at", .datetime, .required, .custom("DEFAULT CURRENT_TIMESTAMP"))
             .foreignKey("spending_method_id", references: "spending_method","id", onDelete: .cascade)
             .create()
+            .flatMap {
+                ExpenseTypeSeeder.seed(on: database)
+            }
     }
     
     func revert(on database: Database) -> EventLoopFuture<Void> {

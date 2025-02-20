@@ -50,5 +50,4 @@ public func configure(_ app: Application) async throws {
         try app.queues.startInProcessJobs()
     }
     
-    try seed(app)
 }

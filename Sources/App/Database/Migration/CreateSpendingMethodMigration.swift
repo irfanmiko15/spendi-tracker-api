@@ -16,6 +16,9 @@ struct CreateSpendingMethodTypeMigration: Migration {
             .field("created_at", .datetime, .required, .custom("DEFAULT CURRENT_TIMESTAMP"))
             .field("updated_at", .datetime, .required, .custom("DEFAULT CURRENT_TIMESTAMP"))
             .create()
+            .flatMap {
+                SpendingMethodSeeder.seed(on: database)
+            }
         
         
     }
