@@ -1,0 +1,912 @@
+{
+	"info": {
+		"_postman_id": "d3ce490b-56c0-47e7-9ee7-5647eb346ae7",
+		"name": "Spendi Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30174948"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "irfandarys@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "irfan",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "dary",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "irfandarys@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "irfandarys@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email-verification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "irfandarys@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/email-verification",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"email-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh access token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "refreshToken",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/accessToken",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"accessToken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get current user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VySUQiOiJENEMzQzlENC03NUU5LTRBMDEtOTU1QS02MTlGNzg0MzEzQzAiLCJmaXJzdE5hbWUiOiJpcmZhbiIsImVtYWlsIjoiaXJmYW5kYXJ5c0BnbWFpbC5jb20iLCJsYXN0TmFtZSI6ImRhcnkiLCJleHAiOjE3Mzk4NjY2OTQuODI0NDg2fQ.TRRkur1n-HJV9bS-wQ3IogRaeYmt4uhGJh9Z_H_SDo3Qjl21kmV5FFoAI74bqtRC-nq7o4rDoPssyDaDOPfWEiNEfHF9bsCmOFNbPFlwtb8lPPLwcjmSK_T461mqd4yHuTgFC3uBbe0eZlwZ5x2P9MZZPoBj9zezCfAiLCb2zJdVWCpNxjG7vroUiJiwuJCMEGHqfUZ1yKrgi3x5H-p3pQRn-EFBKSSvHFFL_ZG_pZ83m59MlpoGBMrTALvjPrrMAV-LBgXoWCJbuV_e93DeXIeHVitX4g6Yk9Sm7W7ie6-mFSMVUNhtzlWS41OJ7oyOw3ZY00QDPjXqwsyAFen00w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Income",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJlbWFpbCI6ImlyZmFuZGFyeXNAZ21haWwuY29tIiwibGFzdE5hbWUiOiJkYXJ5IiwiZXhwIjoxNzM5OTQ5Mzg1LjY3ODYxNiwiZmlyc3ROYW1lIjoiaXJmYW4iLCJ1c2VySUQiOiI5NDQ4NzFDQi02QUZFLTRBRjYtOEU5Qy03RTU4MUYyNjMxODQifQ.YY9fCG6EKo2xmGCkq7B4VBzsciMjQELFuVuRF1jwRWaENPvi8AtBTC9PMoMkvYvT_0TwIvqQL1-_bPnzaQ6k8H5g3I0GiHsuiEFLFNgzS_XKwflfpLaNM4L9TU1L5TkExO4zJBaQsr-s_ajoACSTwthJ45fCnhU7k2qvnJ60B87f4qg1k2QgsH2wm13Yi1WMtpXr1NsP9wnLWUonYGe99KGjgt_K8YZuEndkNkSd_dYGHiapL6z4tpHOOLigXmLfULV4jrNCxLHRd3fsi6KcKy8_3U01DxaNenZpEOlEjEZvUU3p0jOfjy2RrddmB_I4rYzQKJgdDeCr_45aZxfLAw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/income",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"income"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create income",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsYXN0TmFtZSI6ImRhcnkiLCJ1c2VySUQiOiJENEMzQzlENC03NUU5LTRBMDEtOTU1QS02MTlGNzg0MzEzQzAiLCJlbWFpbCI6ImlyZmFuZGFyeXNAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiaXJmYW4iLCJleHAiOjE3Mzk4NzA4MTIuMzY4NzU2fQ.A-qP7HVdLM1TYVPCAynaUa59WPGbtosGAJUJuOudT72sytukzFweUAPgwr-RXQYDDfSkD1Sa1YsSMARzOoxGMONdTyv0aRtSSIjzoYZ_Al-3jHrbHAF8A6z2e_H12PLd9aZSIwVqX4uITVBKKSH3lodQ9YiClsh99AEscwzX_ffFVVay5BIAoJKMucXYIG3zlp61m1iMRwvLQmeY-NwXyv8NpOYMCKbEIThxS4Pgxcz_zWCMA0eQYx1WLypWcAF2JgLpDzBy-LuGH2TtUl8VkbQv0-TlY3eeKpTtA1d4W2RfP023I2nC2CWGpBc_jrMsd5LsdiOhphap0WQGvya0rA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "spendingMethodId",
+									"value": "47975577-ec52-491a-af28-6d73ca3daf42",
+									"type": "text"
+								},
+								{
+									"key": "month",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2025",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "20000000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/income",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"income"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Income",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJlbWFpbCI6ImlyZmFuZGFyeXNAZ21haWwuY29tIiwibGFzdE5hbWUiOiJkYXJ5IiwiZXhwIjoxNzM5OTQ5Mzg1LjY3ODYxNiwiZmlyc3ROYW1lIjoiaXJmYW4iLCJ1c2VySUQiOiI5NDQ4NzFDQi02QUZFLTRBRjYtOEU5Qy03RTU4MUYyNjMxODQifQ.YY9fCG6EKo2xmGCkq7B4VBzsciMjQELFuVuRF1jwRWaENPvi8AtBTC9PMoMkvYvT_0TwIvqQL1-_bPnzaQ6k8H5g3I0GiHsuiEFLFNgzS_XKwflfpLaNM4L9TU1L5TkExO4zJBaQsr-s_ajoACSTwthJ45fCnhU7k2qvnJ60B87f4qg1k2QgsH2wm13Yi1WMtpXr1NsP9wnLWUonYGe99KGjgt_K8YZuEndkNkSd_dYGHiapL6z4tpHOOLigXmLfULV4jrNCxLHRd3fsi6KcKy8_3U01DxaNenZpEOlEjEZvUU3p0jOfjy2RrddmB_I4rYzQKJgdDeCr_45aZxfLAw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "spendingMethodId",
+									"value": "1032CB51-BD45-4E8A-9517-7600F5F469B6",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "5000000",
+									"type": "text"
+								},
+								{
+									"key": "month",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2025",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/income/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"income",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3469F232-FE1A-443E-B7D4-67C6C742B9B4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete income",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VySUQiOiJENEMzQzlENC03NUU5LTRBMDEtOTU1QS02MTlGNzg0MzEzQzAiLCJsYXN0TmFtZSI6ImRhcnkiLCJmaXJzdE5hbWUiOiJpcmZhbiIsImV4cCI6MTczOTg2ODExMC4zNjI1ODcsImVtYWlsIjoiaXJmYW5kYXJ5c0BnbWFpbC5jb20ifQ.YeZbQelYQeUSoPXBRpA5VeJ13G39XxLxj0-BVBki42GaHnPNGPhcjTxf6eZpao6jveQPmQIf2kEuZwmHx2NwgLbSt6J3hsviBIjEg2oZ6_f39SX3H6cjLw0Vb3KNYPczMGNdz6EVCf9H4OIAd7cOvq5_l14tMFFDCLGvKvURuRF44rgbSECZV_90ZmBcN3p0owqF7VLaY13sMXkfPAdCpH8udLyGjNXzrHm4hKvgnhbn_fKM_T4sWLn31sTubJkNoZxjgDPrgJurgvC0AIr8K0cIjzl-rxPE9z6vqaWKcBAu7oyZWvv77qlZROrkwfptMz2rqMiM3z084IpTlt9qkA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/income/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"income",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ab47b9da-66ad-4be2-92c1-cd2845ea399e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Spending Method",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsYXN0TmFtZSI6ImRhcnkiLCJ1c2VySUQiOiJENEMzQzlENC03NUU5LTRBMDEtOTU1QS02MTlGNzg0MzEzQzAiLCJlbWFpbCI6ImlyZmFuZGFyeXNAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiaXJmYW4iLCJleHAiOjE3Mzk4NzA4MTIuMzY4NzU2fQ.A-qP7HVdLM1TYVPCAynaUa59WPGbtosGAJUJuOudT72sytukzFweUAPgwr-RXQYDDfSkD1Sa1YsSMARzOoxGMONdTyv0aRtSSIjzoYZ_Al-3jHrbHAF8A6z2e_H12PLd9aZSIwVqX4uITVBKKSH3lodQ9YiClsh99AEscwzX_ffFVVay5BIAoJKMucXYIG3zlp61m1iMRwvLQmeY-NwXyv8NpOYMCKbEIThxS4Pgxcz_zWCMA0eQYx1WLypWcAF2JgLpDzBy-LuGH2TtUl8VkbQv0-TlY3eeKpTtA1d4W2RfP023I2nC2CWGpBc_jrMsd5LsdiOhphap0WQGvya0rA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/spending-method",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"spending-method"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsYXN0TmFtZSI6ImRhcnkiLCJ1c2VySUQiOiJENEMzQzlENC03NUU5LTRBMDEtOTU1QS02MTlGNzg0MzEzQzAiLCJlbWFpbCI6ImlyZmFuZGFyeXNAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiaXJmYW4iLCJleHAiOjE3Mzk4NzA4MTIuMzY4NzU2fQ.A-qP7HVdLM1TYVPCAynaUa59WPGbtosGAJUJuOudT72sytukzFweUAPgwr-RXQYDDfSkD1Sa1YsSMARzOoxGMONdTyv0aRtSSIjzoYZ_Al-3jHrbHAF8A6z2e_H12PLd9aZSIwVqX4uITVBKKSH3lodQ9YiClsh99AEscwzX_ffFVVay5BIAoJKMucXYIG3zlp61m1iMRwvLQmeY-NwXyv8NpOYMCKbEIThxS4Pgxcz_zWCMA0eQYx1WLypWcAF2JgLpDzBy-LuGH2TtUl8VkbQv0-TlY3eeKpTtA1d4W2RfP023I2nC2CWGpBc_jrMsd5LsdiOhphap0WQGvya0rA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "method",
+									"value": "60/30/10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/spending-method",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"spending-method"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsYXN0TmFtZSI6ImRhcnkiLCJ1c2VySUQiOiJENEMzQzlENC03NUU5LTRBMDEtOTU1QS02MTlGNzg0MzEzQzAiLCJlbWFpbCI6ImlyZmFuZGFyeXNAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiaXJmYW4iLCJleHAiOjE3Mzk4NzA4MTIuMzY4NzU2fQ.A-qP7HVdLM1TYVPCAynaUa59WPGbtosGAJUJuOudT72sytukzFweUAPgwr-RXQYDDfSkD1Sa1YsSMARzOoxGMONdTyv0aRtSSIjzoYZ_Al-3jHrbHAF8A6z2e_H12PLd9aZSIwVqX4uITVBKKSH3lodQ9YiClsh99AEscwzX_ffFVVay5BIAoJKMucXYIG3zlp61m1iMRwvLQmeY-NwXyv8NpOYMCKbEIThxS4Pgxcz_zWCMA0eQYx1WLypWcAF2JgLpDzBy-LuGH2TtUl8VkbQv0-TlY3eeKpTtA1d4W2RfP023I2nC2CWGpBc_jrMsd5LsdiOhphap0WQGvya0rA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "method",
+									"value": "50/40/10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/spending-method/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"spending-method",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "E91E8439-7E20-4967-8056-ED4D9489B083"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/spending-method/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"spending-method",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "E91E8439-7E20-4967-8056-ED4D9489B083"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Expense Type",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJpcmZhbiIsImV4cCI6MTczOTk1MDUwMC4xOTk4NzQ5LCJsYXN0TmFtZSI6ImRhcnkiLCJlbWFpbCI6ImlyZmFuZGFyeXNAZ21haWwuY29tIiwidXNlcklEIjoiOTQ0ODcxQ0ItNkFGRS00QUY2LThFOUMtN0U1ODFGMjYzMTg0In0.pDp_F-UgIBJRnm9sXafEpi-GDqAzjXymZyjePX2Fm3t67glJtEtYJmxmy3Y-D4C67gLd1lVAY8RQ_AbomTceCaAXolHHzdqpQf6rPBy-7KKNTzUhc79aYSIqUS4EYDTZYZnN20WyFb5Ts5iNH6WMFGTyfnkYaXi8pUOAS8uUvs9P5eyyM5v9KIqEtx9AAowBhk6Yu2_IxcsUM3TEh5X7y8qMv8scXAWhGAmOChbsQQdjue-nhcoQoYOLVZ8dNc9-8t2RS9-rij0TVNjsBhr3W7-uWQj9ikf46Rccg1p4MqOCafoPU3rE-xoEKkksUEjyhAkSLhFfN7Zvji3k8JUnNw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expense-type?spendingMethodId=1032CB51-BD45-4E8A-9517-7600F5F469B6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expense-type"
+							],
+							"query": [
+								{
+									"key": "spendingMethodId",
+									"value": "1032CB51-BD45-4E8A-9517-7600F5F469B6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "spendingMethodId",
+									"value": "1032CB51-BD45-4E8A-9517-7600F5F469B6",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "20",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expense-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expense-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJmaXJzdE5hbWUiOiJpcmZhbiIsInVzZXJJRCI6IjlGMDNEQ0EyLUZDOTktNEZGNC05QjY3LTZDNENDQjY2Qjg5OSIsImV4cCI6MTczOTk2NDc1OS43MzYyMDEsImxhc3ROYW1lIjoiZGFyeSIsImVtYWlsIjoiaXJmYW5kYXJ5c0BnbWFpbC5jb20ifQ.h2BuKWoNF0B-24SdwzervOt3lzLDgQZt7rf1O4hOZWbSmDREcTAoU9UU04H_S9pX6IBz380cZ8vKdA2py-pE1eXDWmYig-bAlTfE3L9deAJc1n6uLI6FzizHuDO38yNLXlkiJ8p_2LK4EtlMrRgxQFl28kaoKPW3ZXzFuC9U0iCx3maERj9QYZiNg-Gge51TfGEyJafli1vkVRtiF1YqnU9rVhul6so7tvQNGD482CoFgg6FeD_2tmWfIZ4NHzZcO1tMFhPjLXHFHxZhA71Tx-pqN3lMbNYQgckccX8g-fjp1tEzvpvFqHslTAApDE_EzyfqqbL4UzEUE9eo7rKu4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "spendingMethodId",
+									"value": "9DAAEF28-C411-4CD6-AF7B-8324C069FE89",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test halo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expense-type/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expense-type",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "A7BBA98B-137C-4750-8E27-82587829E578"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expense-type/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expense-type",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "FE3133C5-2BC1-4707-99DD-7FA29D59D7FF"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Expense",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJmaXJzdE5hbWUiOiJpcmZhbiIsInVzZXJJRCI6IjlGMDNEQ0EyLUZDOTktNEZGNC05QjY3LTZDNENDQjY2Qjg5OSIsImV4cCI6MTczOTk2NDc1OS43MzYyMDEsImxhc3ROYW1lIjoiZGFyeSIsImVtYWlsIjoiaXJmYW5kYXJ5c0BnbWFpbC5jb20ifQ.h2BuKWoNF0B-24SdwzervOt3lzLDgQZt7rf1O4hOZWbSmDREcTAoU9UU04H_S9pX6IBz380cZ8vKdA2py-pE1eXDWmYig-bAlTfE3L9deAJc1n6uLI6FzizHuDO38yNLXlkiJ8p_2LK4EtlMrRgxQFl28kaoKPW3ZXzFuC9U0iCx3maERj9QYZiNg-Gge51TfGEyJafli1vkVRtiF1YqnU9rVhul6so7tvQNGD482CoFgg6FeD_2tmWfIZ4NHzZcO1tMFhPjLXHFHxZhA71Tx-pqN3lMbNYQgckccX8g-fjp1tEzvpvFqHslTAApDE_EzyfqqbL4UzEUE9eo7rKu4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "incomeId",
+									"value": "EF4D2705-424E-4BC7-80E5-3EEB09B097E7",
+									"type": "text"
+								},
+								{
+									"key": "transactionDate",
+									"value": "2025-01-19T12:34:56Z",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "20000",
+									"type": "text"
+								},
+								{
+									"key": "expenseTypeId",
+									"value": "F15B3281-C6E3-4AC5-8F81-6F03FED9FFEB",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "beli bedak",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expense",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expense"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJmaXJzdE5hbWUiOiJpcmZhbiIsInVzZXJJRCI6IjlGMDNEQ0EyLUZDOTktNEZGNC05QjY3LTZDNENDQjY2Qjg5OSIsImV4cCI6MTczOTk2NDc1OS43MzYyMDEsImxhc3ROYW1lIjoiZGFyeSIsImVtYWlsIjoiaXJmYW5kYXJ5c0BnbWFpbC5jb20ifQ.h2BuKWoNF0B-24SdwzervOt3lzLDgQZt7rf1O4hOZWbSmDREcTAoU9UU04H_S9pX6IBz380cZ8vKdA2py-pE1eXDWmYig-bAlTfE3L9deAJc1n6uLI6FzizHuDO38yNLXlkiJ8p_2LK4EtlMrRgxQFl28kaoKPW3ZXzFuC9U0iCx3maERj9QYZiNg-Gge51TfGEyJafli1vkVRtiF1YqnU9rVhul6so7tvQNGD482CoFgg6FeD_2tmWfIZ4NHzZcO1tMFhPjLXHFHxZhA71Tx-pqN3lMbNYQgckccX8g-fjp1tEzvpvFqHslTAApDE_EzyfqqbL4UzEUE9eo7rKu4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expense/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expense",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "EF4D2705-424E-4BC7-80E5-3EEB09B097E7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "incomeId",
+									"value": "EF4D2705-424E-4BC7-80E5-3EEB09B097E7",
+									"type": "text"
+								},
+								{
+									"key": "transactionDate",
+									"value": "2025-01-20T12:34:56Z",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "expenseTypeId",
+									"value": "F15B3281-C6E3-4AC5-8F81-6F03FED9FFEB",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "beli beras",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expense/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expense",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8ACC6962-D959-4655-92FD-AE12AAE56C04"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expense/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expense",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
