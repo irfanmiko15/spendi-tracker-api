@@ -1,5 +1,5 @@
 # 💰 Spending Tracker API
-![alt text](https://github.com/irfanmiko15/spendi-tracker-api/blob/main/image/vapor.png)
+![alt text](https://github.com/irfanmiko15/spendi-tracker-api/blob/main/Image/vapor.png)
 
 ## 📌 Overview
 Spending Tracker API is a backend service designed to help users track their spending efficiently. Built with **Swift Vapor**, it provides a robust and scalable API to manage expenses, authenticate users securely, and send notifications.
@@ -33,7 +33,7 @@ Copy env.example to .env and configure your database, Mailgun, and Redis setting
 
 
 ### 3️⃣ Migrate Database
-![alt text](https://github.com/irfanmiko15/spendi-tracker-api/blob/main/image/db_schema.png)
+![alt text](https://github.com/irfanmiko15/spendi-tracker-api/blob/main/Image/db_schema.png)
 
 run ```swift run App migrate``` to migrate database and it will seed data for ```expense_type``` and ```spending_method``` table
 
