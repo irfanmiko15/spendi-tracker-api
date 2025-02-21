@@ -139,7 +139,7 @@ struct AuthenticationController: RouteCollection {
             .map { UserDTO(from: $0) }
     }
     
-    private func verifyEmail(_ req: Request) throws -> EventLoopFuture<HTTPStatus> {
+    private func verifyEmail(_ req: Request) throws -> EventLoopFuture<Response> {
         let token = try req.query.get(String.self, at: "token")
         
         let hashedToken = SHA256.hash(token)
@@ -152,8 +152,18 @@ struct AuthenticationController: RouteCollection {
                    else: AuthenticationError.emailTokenHasExpired)
             .flatMap {
                 req.users.set(\.$isEmailVerified, to: true, for: $0.$user.id)
-        }
-        .transform(to: .ok)
+            }.flatMap {
+                req.view.render("emailVerified", ["status": "success"])
+            }
+            .map { view in
+                return req.redirect(to: "/verify-status/success")
+            }
+            .flatMapError { error in
+                return req.view.render("emailVerified", ["status": "failed"])
+                    .map { view in
+                        return req.redirect(to: "/verify-status/failed")
+                    }
+            }
     }
     
     private func resetPassword(_ req: Request) throws -> EventLoopFuture<HTTPStatus> {

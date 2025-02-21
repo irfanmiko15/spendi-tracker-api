@@ -4,7 +4,7 @@ import Vapor
 import JWT
 import Mailgun
 import QueuesRedisDriver
-
+import Leaf
 // configures your application
 public func configure(_ app: Application) async throws {
     if app.environment != .testing {
@@ -28,7 +28,7 @@ public func configure(_ app: Application) async throws {
     ), as: .psql)
     app.middleware = .init()
     app.middleware.use(ErrorMiddleware.custom(environment: app.environment))
-    
+    app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
     // MARK: Model Middleware
     
     // MARK: Mailgun
@@ -37,6 +37,10 @@ public func configure(_ app: Application) async throws {
     
     // MARK: App Config
     app.config = .environment
+    
+    //MARK: Use leaf template
+    app.views.use(.leaf)
+    app.leaf.cache.isEnabled = false
     
     try routes(app)
     try migrations(app)
