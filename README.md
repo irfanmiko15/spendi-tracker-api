@@ -10,7 +10,7 @@ Spending Tracker API is a backend service designed to help users track their spe
 - **Authentication:** JWT Token  
 - **Email Service:** Mailgun (for email verification, password reset, etc.)  
 - **Queue Processing:** Redis (for handling background jobs efficiently)
-- **Leaf Templating:** Leaft (for web UI rendering)    
+- **Leaf Templating:** Leaf (for web UI rendering)    
 
 ## 🚀 Features
 - ✅ **User Authentication** – Secure login & registration using JWT  
